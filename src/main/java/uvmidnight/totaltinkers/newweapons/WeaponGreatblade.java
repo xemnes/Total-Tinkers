@@ -1,6 +1,7 @@
 package uvmidnight.totaltinkers.newweapons;
 
 import net.minecraft.client.resources.I18n;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.MultiPartEntityPart;
@@ -11,6 +12,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import slimeknights.tconstruct.library.materials.*;
 import slimeknights.tconstruct.library.tinkering.Category;
@@ -21,6 +23,7 @@ import slimeknights.tconstruct.library.utils.TagUtil;
 import slimeknights.tconstruct.library.utils.Tags;
 import slimeknights.tconstruct.library.utils.ToolHelper;
 import slimeknights.tconstruct.library.utils.TooltipBuilder;
+import slimeknights.tconstruct.tools.TinkerMaterials;
 import slimeknights.tconstruct.tools.TinkerTools;
 
 import javax.annotation.Nonnull;
@@ -56,6 +59,13 @@ public class WeaponGreatblade extends SwordCore {
         }
 //        float percentHp = tagHP * 0.7F;
 //        return percentHp;
+    }
+
+    @Override
+    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems) {
+        if(this.isInCreativeTab(tab)) {
+            addDefaultSubItems(subItems, TinkerMaterials.wood, TinkerMaterials.iron, TinkerMaterials.iron, TinkerMaterials.iron, TinkerMaterials.iron);
+        }
     }
 
     @Override

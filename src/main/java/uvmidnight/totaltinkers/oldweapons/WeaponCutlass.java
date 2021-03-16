@@ -1,11 +1,13 @@
 package uvmidnight.totaltinkers.oldweapons;
 
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.NonNullList;
 import slimeknights.tconstruct.library.materials.*;
 import slimeknights.tconstruct.library.tinkering.Category;
 import slimeknights.tconstruct.library.tinkering.PartMaterialType;
@@ -13,6 +15,7 @@ import slimeknights.tconstruct.library.tools.SwordCore;
 import slimeknights.tconstruct.library.tools.ToolNBT;
 import slimeknights.tconstruct.library.traits.ITrait;
 import slimeknights.tconstruct.library.utils.TinkerUtil;
+import slimeknights.tconstruct.tools.TinkerMaterials;
 import slimeknights.tconstruct.tools.TinkerTools;
 
 import java.util.List;
@@ -33,6 +36,13 @@ public class WeaponCutlass extends SwordCore {
         addCategory(Category.WEAPON);
 
         setTranslationKey("cutlass").setRegistryName("cutlass");
+    }
+
+    @Override
+    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems) {
+        if(this.isInCreativeTab(tab)) {
+            addDefaultSubItems(subItems, TinkerMaterials.wood, TinkerMaterials.iron, TinkerMaterials.iron);
+        }
     }
 
     @Override

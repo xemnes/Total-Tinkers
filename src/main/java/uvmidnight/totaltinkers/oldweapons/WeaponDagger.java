@@ -1,10 +1,14 @@
 package uvmidnight.totaltinkers.oldweapons;
 
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import slimeknights.tconstruct.library.materials.*;
 import slimeknights.tconstruct.library.tinkering.Category;
 import slimeknights.tconstruct.library.tinkering.PartMaterialType;
 import slimeknights.tconstruct.library.tools.ProjectileNBT;
 import slimeknights.tconstruct.library.tools.SwordCore;
+import slimeknights.tconstruct.tools.TinkerMaterials;
 import slimeknights.tconstruct.tools.TinkerTools;
 
 import java.util.List;
@@ -30,6 +34,13 @@ public class WeaponDagger extends SwordCore {
 //
 ////    return ActionResult.newResult(EnumActionResult.FAIL, itemStackIn);
 //  }
+
+    @Override
+    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems) {
+        if(this.isInCreativeTab(tab)) {
+            addDefaultSubItems(subItems, TinkerMaterials.wood, TinkerMaterials.iron, TinkerMaterials.iron);
+        }
+    }
 
 
     @Override
